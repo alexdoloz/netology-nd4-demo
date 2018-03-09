@@ -133,4 +133,22 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.extractReverse = function () {
             return $scope.myOrderProperty.indexOf("_reversed") > 0;
         };
+
+        $scope.imageClicked = function(pokemon) {
+            console.log(pokemon);
+            alert(`${pokemon.name}`);
+        };
+
+        $scope.classForPokemon = function(pokemon) {
+            if (pokemon.type.includes("water")) {
+                return "water";
+            }
+            if (pokemon.type.includes("fire")) {
+                return "fire";
+            }
+            if (pokemon.type.includes("grass")) {
+                return "grass";
+            }
+            return "";
+        }
     });
