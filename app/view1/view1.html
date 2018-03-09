@@ -6,11 +6,12 @@
     <option value="name">Имени</option>
     <option value="id">ID</option>
     <option value="weight">Весу</option>
+    <option value="weight_reversed">Весу (по убыванию)</option>
     <option value="height">Росту</option>
 </select>
 
 <ul>
-    <li ng-repeat="pokemon in pokemons | filter: myQuery | orderBy: myOrderProperty">
+    <li ng-repeat="pokemon in pokemons | filter: myQuery | orderBy: extractOrderProperty(myOrderProperty) : extractReverse(myOrderProperty)">
         <img src="{{pokemon.ThumbnailImage}}">
 
         <small>ID #{{pokemon.id }}</small>

@@ -122,4 +122,12 @@ angular.module('myApp.view1', ['ngRoute'])
 
         $scope.myOrderProperty = 'id';
 
+        $scope.extractOrderProperty = function() {
+            var result = /^([a-z]*)(_reversed)?$/.exec($scope.myOrderProperty);
+            return result[1];
+        };
+
+        $scope.extractReverse = function () {
+            return $scope.myOrderProperty.indexOf("_reversed") > 0;
+        };
     });
