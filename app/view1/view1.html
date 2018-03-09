@@ -10,8 +10,14 @@
     <option value="height">Росту</option>
 </select>
 
+<br>
+Фильтровать по типу:
+<select ng-model="pokemonType">
+    <option ng-repeat="type in pokemonTypes" value="{{type}}">{{type}}</option>
+</select>
+
 <ul>
-    <li ng-repeat="pokemon in pokemons | filter: myQuery | orderBy: extractOrderProperty(myOrderProperty) : extractReverse(myOrderProperty)">
+    <li ng-repeat="pokemon in pokemons | filter: {name: myQuery, type: pokemonType} | orderBy: extractOrderProperty(myOrderProperty) : extractReverse(myOrderProperty)">
         <img src="{{pokemon.ThumbnailImage}}">
 
         <small>ID #{{pokemon.id }}</small>

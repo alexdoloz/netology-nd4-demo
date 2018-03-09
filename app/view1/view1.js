@@ -119,7 +119,10 @@ angular.module('myApp.view1', ['ngRoute'])
                 "normal"
             ]
         }];
-
+        var types = $scope.pokemons.map(function(pokemon) { return pokemon.type; });
+        $scope.pokemonTypes = Array.from(new Set([].concat.apply([''], types))); 
+        $scope.pokemonType = '';
+        console.log($scope.pokemonTypes);
         $scope.myOrderProperty = 'id';
 
         $scope.extractOrderProperty = function() {
